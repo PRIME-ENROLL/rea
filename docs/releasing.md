@@ -194,6 +194,12 @@ built-in token, `opened`, `synchronize`, and `reopened` PR events create runs
 that require a maintainer with write access to approve them. See
 [GitHub's workflow trigger documentation](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
 
+The built-in token can open the bot PR only when the repository setting
+**Settings > Actions > General > Allow GitHub Actions to create and approve
+pull requests** is enabled. Otherwise Release Please fails with "GitHub Actions
+is not permitted to create or approve pull requests"; enable the setting or
+configure `RELEASE_PLEASE_TOKEN`.
+
 The generation step normalizes the product catalog. Preparation cannot create
 a GitHub release or publish a package. Record the final bot PR head after
 normalization, then approve that head's blocked runs from the PR page. Updates
